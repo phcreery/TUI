@@ -4,7 +4,7 @@ This is an example script to showcase TUI
 
 import tui
 
-screensize = tui.general.getsize()
+screensize = tui.getsize()
 
 r = tui.kbdinput("Prompt",screensize,"small","")
 
