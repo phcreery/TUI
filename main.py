@@ -3,7 +3,6 @@ This is an example script to showcase TUI
 '''
 
 import tui
-import os
 
 screensize = tui.general.getsize()
 
