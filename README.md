@@ -30,7 +30,7 @@ kbd.tuiinput("Title",width,height,"big/small/tiny","inital text")
 ```
 This displays a textbox with an onscreen QWERTY keyboard that is operated using the WASD keys. The keyboard is changed with R & F keys. Keypress is simulted with Q key. P breaks the script.
 
-![](images/screenshot1.png)
+![](images/screenshot2.png)
 
 
 ## ToDo
