@@ -1,3 +1,7 @@
+'''
+This is an example script to showcase TUI
+'''
+
 import tui.general
 import tui.kbd
 import os
