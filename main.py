@@ -1,4 +1,11 @@
-import kbd
+import tui.general
+import tui.kbd
+import os
+import subprocess
 
 
-kbd.tuiinput("Prompt",40,13,"big","")
+screensize = tui.general.getsize()
+
+r = tui.kbd.kbdinput("Prompt",screensize,"small","")
+
+print(r)
