@@ -26,7 +26,7 @@ sudo python3 main.py
 
 Currently there is only one thing it does and is pretty limited but this has big dreams
 ```
-kbd.tuiinput("Title",(width,height),"big/small/tiny","inital text")
+kbd.tuiinput("Title",(width,height),"big/small/tiny","inital text","Tooltip")
 ```
 This displays a textbox with an onscreen QWERTY keyboard that is operated using the WASD keys. The keyboard is changed with R & F keys. Keypress is simulted with E key. Q breaks the script.
 
