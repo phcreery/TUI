@@ -9,7 +9,7 @@ I know that several TUI exist, like curses, asciimatics, urwid, npyscreen, etc b
 
 ### Prerequisites
 
-NONE
+* python 3
 
 ### Installing
 
