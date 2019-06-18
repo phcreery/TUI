@@ -19,7 +19,7 @@ git clone "https://github.com/phcreery/TUI.git"
 
 ## Running
 
-Be sure the kbd.py is in the same directory. It is the library
+Be sure the tui folder is in the same directory. tui is the library
 ```
 sudo python3 main.py
 ```
