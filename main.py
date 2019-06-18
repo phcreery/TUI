@@ -18,7 +18,7 @@ def unintrusive():
     status = tui.initmanualkbdinput()
     status = tui.setkbdinput(status, "down")
     status = tui.setkbdinput(status, "right")
-    tui.drawkbdinput("Prompt",screensize,"small","","Unintusive KBD",status)
+    tui.drawkbdinput("Prompt",screensize,"small","","Unintusive KBD Tooltip",status)
 
 
 intrusive()
