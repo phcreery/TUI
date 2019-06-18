@@ -174,7 +174,82 @@ def getinput(x,y,z,kbd):
     return(x,y,z,a,kbd)
 
 
-def kbdinput(title,dispsize,size,keystr):
+
+def initmanualkbdinput():
+    a=0
+    y=0
+    z=0
+    a=0
+    kbd=True   
+    return(x,y,z,a,kbd)
+
+def setkbdinput(status,command):
+    x,y,z,a,kbd = status
+    #char = getch()
+    #kbd=True
+    a=0
+    if (command == "exit"):
+        #print("Stop!")
+        kbd=False
+        #exit(0)
+        
+    elif (command == "left"):
+        x=x-1
+    elif (command == "right"):
+        x=x+1
+    elif (command == "up"):
+        y=y-1
+    elif (command == "down"):
+        y=y+1
+    elif (command == "+"):
+        z=z+1
+    elif (command == "-"):
+        z=z-1
+    elif (command == "select"):
+        a=1
+        
+    return(x,y,z,a,kbd)
+
+def drawkbdinput(title,dispsize,size,keystr,tooltip,status):
+    x,y,z,a,kbd = status
+    height, width = dispsize
+
+    os.system("clear")
+    #x = random.randint(0, len(keyarray[0][0])-1)
+    #y = random.randint(0, len(keyarray[0])-1)
+    #z = random.randint(0, len(keyarray)-1)
+    
+    #rows, columns = os.popen('stty size', 'r').read().split()
+    #print("start")
+    print("".join("\n" for x in range(0, int(round((height-11)/3)) )), end="")
+    drawtxtbox(title, keystr, width)
+    print("".join("\n" for x in range(0, int(round((height-11)/3)) )), end="")
+    #print()
+    if size == "big":
+        drawkbdbig(x,y, keyarray[z], width)
+    elif size == "small":
+        drawkbd(x,y, keyarray[z], width)
+    elif size == "tiny":
+        drawkbdtiny(x,y, keyarray[z], width)
+    elif size == "giant":
+        drawkbdgiant(x,y, keyarray[z], width)
+    
+    print("".join("\n" for x in range(0, int(round((height-11)/3)) )), end="")
+    print("".join(" " for x in range(0, int(round((width-len(tooltip))/2)) )), end="")
+    print(tooltip)
+    #x,y,z,a,kbd = getinput(x,y,z,kbd)
+    
+    x = clamp(x, 0, len(keyarray[0][0])-1)
+    y = clamp(y, 0, len(keyarray[0])-1)
+    z = clamp(z, 0, len(keyarray)-1)
+    
+    if a == 1:
+        keystr = keystr + keyarray[z][y][x]
+
+    return(keystr)
+
+
+def kbdinput(title,dispsize,size,keystr,tooltip):
     global x,y,z,a
     height, width = dispsize
     kbd=True
@@ -185,10 +260,10 @@ def kbdinput(title,dispsize,size,keystr):
         #z = random.randint(0, len(keyarray)-1)
         
         #rows, columns = os.popen('stty size', 'r').read().split()
-        
-        print("".join("\n" for x in range(0, int(round((height-7)/2)) )), end="")
+        #print("start")
+        print("".join("\n" for x in range(0, int(round((height-11)/3)) )), end="")
         drawtxtbox(title, keystr, width)
-        print("".join("\n" for x in range(0, int(round((height-7)/2)) )), end="")
+        print("".join("\n" for x in range(0, int(round((height-11)/3)) )), end="")
         #print()
         if size == "big":
             drawkbdbig(x,y, keyarray[z], width)
@@ -198,7 +273,10 @@ def kbdinput(title,dispsize,size,keystr):
             drawkbdtiny(x,y, keyarray[z], width)
         elif size == "giant":
             drawkbdgiant(x,y, keyarray[z], width)
-    
+        
+        print("".join("\n" for x in range(0, int(round((height-11)/3)) )), end="")
+        print("".join(" " for x in range(0, int(round((width-len(tooltip))/2)) )), end="")
+        print(tooltip)
         x,y,z,a,kbd = getinput(x,y,z,kbd)
         
         x = clamp(x, 0, len(keyarray[0][0])-1)
@@ -212,4 +290,4 @@ def kbdinput(title,dispsize,size,keystr):
         
 
 if __name__ == '__main__':
-    tui.kbdinput("Prompt",40,13,"tiny","")
+    kbdinput("Prompt",40,13,"tiny","")
