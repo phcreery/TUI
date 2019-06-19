@@ -1,5 +1,5 @@
 '''
-This is an example script to showcase TUI
+This is an demo script to showcase TUI
 '''
 
 import tui
@@ -14,11 +14,11 @@ def intrusive():
 
 def unintrusive():
     # Manual keyboard strokes and refreshing of Input
-    status = tui.initmanualkbdinput()
-    status = tui.setkbdinput(status, "down")
-    status = tui.setkbdinput(status, "right")
-    tui.drawkbdinput("Prompt",screensize,"small","","Unintusive KBD",status)
+    manually = tui.manualkbdinput()
+    manually.sendkbdinput("down")
+    manually.sendkbdinput("right")
+    manually.drawkbdinput("Prompt",screensize,"medium","","Unintrusive KBD")
 
 
-intrusive()
+#intrusive()
 unintrusive()
