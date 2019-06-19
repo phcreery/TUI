@@ -28,7 +28,7 @@ sudo python3 main.py
 
 Currently there is only one thing it does and is pretty limited but this has big dreams
 ```
-kbd.tuiinput("Title",(width,height),"big/small/tiny","inital text","Tooltip")
+kbd.tuiinput("Title",(width,height),"small/medium/big/giant","inital text","Tooltip")
 ```
 This displays a textbox with an onscreen QWERTY keyboard that is operated using the WASD keys. The keyboard is changed with R & F keys. Keypress is simulted with E key and Backspcae with C. Q breaks the script.
 
@@ -38,10 +38,11 @@ This displays a textbox with an onscreen QWERTY keyboard that is operated using 
 ## ToDo
 This is the list of future changes:
 
- - [ ] Organize library directory with folder heirarchy
- - [ ] More "Modules"/Libraries
+ - [ ] More "Modules"
  - [ ] Text boxes
- - [ ] Buttons
+ - [ ] Prompts with buttons
+ - [ ] List
+ - [ ] Multi-select list
 
 
 ## Authors
