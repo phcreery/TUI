@@ -30,7 +30,7 @@ Currently there is only one thing it does and is pretty limited but this has big
 ```
 kbd.tuiinput("Title",(width,height),"big/small/tiny","inital text","Tooltip")
 ```
-This displays a textbox with an onscreen QWERTY keyboard that is operated using the WASD keys. The keyboard is changed with R & F keys. Keypress is simulted with E key. Q breaks the script.
+This displays a textbox with an onscreen QWERTY keyboard that is operated using the WASD keys. The keyboard is changed with R & F keys. Keypress is simulted with E key and Backspcae with C. Q breaks the script.
 
 ![](images/screenshot2.png)
 
