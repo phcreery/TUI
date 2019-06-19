@@ -170,6 +170,8 @@ def getinput(x,y,z,kbd):
         z=z-1
     elif (char == "e"):
         a=1
+    elif (char == "c"):
+        a=-1
         
     return(x,y,z,a,kbd)
 
@@ -207,6 +209,8 @@ def setkbdinput(status,command):
         z=z-1
     elif (command == "select"):
         a=1
+    elif (command == "backspace"):
+        a=-1
         
     return(x,y,z,a,kbd)
 
@@ -285,6 +289,8 @@ def kbdinput(title,dispsize,size,keystr,tooltip):
         
         if a == 1:
             keystr = keystr + keyarray[z][y][x]
+        elif a == -1:
+            keystr = keystr[:-1]
     
     return(keystr)
         
