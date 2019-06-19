@@ -20,5 +20,5 @@ def unintrusive():
     manually.drawkbdinput("Prompt",screensize,"medium","","Unintrusive KBD")
 
 
-#intrusive()
+intrusive()
 unintrusive()
