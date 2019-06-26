@@ -26,7 +26,8 @@ sudo python3 main.py
 
 ### Usage
 
-Currently there is only one thing it does and is pretty limited but this has big dreams
+Currently there is only sever things it does and is pretty limited but this has big dreams.
+Here is one example:
 ```
 kbd.tuiinput("Title",(width,height),"small/medium/big/giant","inital text","Tooltip")
 ```
@@ -41,7 +42,7 @@ This is the list of future changes:
  - [ ] More "Modules"
  - [ ] Text boxes
  - [ ] Prompts with buttons
- - [ ] List
+ - [x] List
  - [ ] Multi-select list
 
 
