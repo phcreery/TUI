@@ -41,9 +41,9 @@ This is the list of future changes:
 
  - [ ] More "Modules"
  - [ ] Text boxes
- - [ ] Prompts with buttons
+ - [x] Prompts with buttons
  - [x] List
- - [ ] Multi-select list
+ - [x] Multi-select list
 
 
 ## Authors
