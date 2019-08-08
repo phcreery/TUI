@@ -54,8 +54,15 @@ def intrusivelist():
     t = tui.listselect("Select one:",screensize,options,"small","tooltip",getinput)
     print(t)
 
+def options():
+    options = ["first","second","third","fourth"]
+    r = tui.prompt("title","Are you sure \nyou want to do this?",options,screensize,"tooltip",getinput)
+    print(options[r])
 
 
 intrusivekbd()
-#unintrusivekbd()
+#unintrusivekbd()   #Unsupported
 #intrusivelist()
+#options()
+
+
