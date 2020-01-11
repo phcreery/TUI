@@ -1,6 +1,7 @@
 import os
 import sys, termios, tty
 import time
+from .style import styleSet
 
 x=0
 selected=""
@@ -43,15 +44,16 @@ def getdefaultinput():
     return(press)
 
 
-def drawlistbox(title,options,width,height,x):
-    print(u'\u2554', end=" ")
+def drawlistbox(title,options,width,height,x,styleType):
+    style = styleSet(styleType)
+    print(style.tl, end=" ")
     print(title, end=" ")
-    print("".join(u'\u2550' for x in range(0,width-2-len(title)-2 )), end="")
-    print(u'\u2557')
+    print("".join(style.t for x in range(0,width-2-len(title)-2 )), end="")
+    print(style.tr)
     #print("-----------------------------")
     i=0
     for option in options:
-        print(u'\u2551', end="")
+        print(style.l, end="")
         if x == i:
              print(" > ", end="")
         else:
@@ -60,25 +62,25 @@ def drawlistbox(title,options,width,height,x):
         if i < height-2:
             print(str(option), end="")
             print("".join(" " for x in range(0,(width-5)-len(str(option)))), end="")
-            print(u'\u2551')
+            print(style.r)
         else:
             print("<...>",end="")
             print("".join(" " for x in range(0,(width-10))), end="")
-            print(u'\u2551')
+            print(style.r)
             break
         #print(u'\u2588', end="")
 
     for i in range(0,(height - len(options) - 2)):
-        print(u'\u2551', end="")
+        print(style.l, end="")
         print("".join(" " for x in range(0,(width-2))), end="")
-        print(u'\u2551')
+        print(style.r)
 
-    print(u'\u255A', end="")
-    print("".join(u'\u2550' for x in range(0,width-2)), end="")
-    print(u'\u255D')
+    print(style.bl, end="")
+    print("".join(style.b for x in range(0,width-2)), end="")
+    print(style.br)
 
 
-def listselect(title,dispsize,options,size,tooltip,getuserinput):
+def listselect(title,dispsize,options,size,tooltip,getuserinput="defaultinput",styleType = "default"):
     global x
     height, width = dispsize
     listing=True
@@ -91,7 +93,7 @@ def listselect(title,dispsize,options,size,tooltip,getuserinput):
     while listing == True:
         os.system("clear")
 
-        drawlistbox(title, options, width,height-2,x)       
+        drawlistbox(title, options, width,height-2,x,styleType)       
         print("".join(" " for x in range(0, int(round((width-len(tooltip))/2)) )), end="")
         print(tooltip)
 
@@ -113,6 +115,6 @@ if __name__ == '__main__':
     print("import tui")
 
     options = ["first","second","third"]
-    t = listselect("Select one:",(40,40),options,"small","tooltip")
+    t = listselect("Select one:",(40,40),options,"small","tooltip",styleType="default")
 
     exit()

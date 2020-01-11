@@ -2,6 +2,7 @@ import os
 #import time
 #import random
 import sys, termios, tty
+from .style import styleSet
 
 #width = 40
 #title="User:"
@@ -23,21 +24,22 @@ def getch():
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     return ch
 
-def drawtxtbox(title,data,width):
+def drawtxtbox(title,data,width,styleType):
+    style = styleSet(styleType)
     #data=data[-(width-4):]
-    print(u'\u2554', end=" ")
+    print(style.tl, end=" ")
     print(title, end=" ")
-    print("".join(u'\u2550' for x in range(0,width-2-len(title) )), end="")
-    print(u'\u2557')
+    print("".join(style.t for x in range(0,width-2-len(title) )), end="")
+    print(style.tr)
     #print("-----------------------------")
     for dat in data.split('\n'):
-        print(u'\u2551', dat, end="")
+        print(style.l, dat, end="")
         #print(u'\u2588', end="")
         print("".join(" " for x in range(0,(width-1)-len(dat))), end="")
-        print(u'\u2551')
-    print(u'\u255A', end="")
-    print("".join(u'\u2550' for x in range(0,width)), end="")
-    print(u'\u255D')
+        print(style.r)
+    print(style.bl, end="")
+    print("".join(style.b for x in range(0,width)), end="")
+    print(style.br)
 
 
 def drawoptions(options,x,width):
@@ -101,12 +103,13 @@ def getdefaultinput():
         press = "select"
     return(press)
 
-def prompt(title,context,options,dispsize,tooltip,getuserinput):
+def prompt(title,context,options,dispsize,tooltip,getuserinput="default",styleType="default"):
+
     global x,a
     height, width = dispsize
     wait=True
     usedspace = 4 + len(context.split('\n'))
-    if getuserinput == "defaultinput":
+    if getuserinput == "default":
         getinput = getdefaultinput
     else:
         getinput = getuserinput
@@ -114,7 +117,7 @@ def prompt(title,context,options,dispsize,tooltip,getuserinput):
         os.system("clear")
         #print("start")
         print("".join("\n" for x in range(0, int(round((height-usedspace)/3)) )), end="")
-        drawtxtbox(title, context, width-4)
+        drawtxtbox(title, context, width-4,styleType)
         print("".join("\n" for x in range(0, int(round((height-usedspace)/3)) )), end="")
         #print()
         drawoptions(options,x,width)

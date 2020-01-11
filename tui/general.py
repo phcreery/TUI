@@ -1,6 +1,5 @@
 import os
 
-
 def getsize():
     try:
         return(os.popen('stty size', 'r').read().split())
